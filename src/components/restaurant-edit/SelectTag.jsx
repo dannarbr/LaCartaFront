@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Select, Tag, Spin } from 'antd';
-import { useFetch } from "../services/useFetch";
+import { useFetch } from "../../services/useFetch";
 import "./SelectTag.css";
 
 // Opciones fijas (o también podrían venir de API)

@@ -1,9 +1,9 @@
 import "./Restaurants.css";
 import RestaurantMexican from "../../../assets/imgs/restaurant-mexican.png";
-import Header from "../../../components/Header";
+import Header from "../../../layout/Header";
 import { Input, Select, Button ,Modal} from "antd";
-import ButtonPopAsync from "../../../components/ButtonPopAsync";
-import SelectTag from "../../../components/SelectTag";
+import ButtonPopAsync from "../../../components/restaurant-edit/ButtonPopAsync.jsx";
+import SelectTag from "../../../components/restaurant-edit/SelectTag.jsx";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import React, { useRef, useState } from "react";
 import { BiImport } from "react-icons/bi";

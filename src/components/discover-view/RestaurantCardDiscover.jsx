@@ -1,11 +1,10 @@
 import React from "react";
-import "./RestaurantCard.css";
+import "./RestaurantCardDiscover.css";
 import { IoCallOutline } from "react-icons/io5";
 import { MdOutlinePlace } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
-import StatusSwitch from "./css/StatusSwitch";
-import TagList from "./TagList";
+import TagList from "../others/TagList";
 import { useNavigate } from "react-router-dom";
+
 
 const getImageUrl = (imagePath) => {
   if (!imagePath) return "https://via.placeholder.com/410x280";
@@ -15,26 +14,23 @@ const getImageUrl = (imagePath) => {
   if (/^https?:\/\//i.test(path)) return path;
 
   const base ="http://localhost:8080";
-  
+
   return `${base}${path.startsWith("/") ? "" : "/"}${path}`;
 };
 
-export default function RestaurantCard({ restaurant, onEdit, onDelete }) {
+export default function RestaurantCardDiscover({ restaurant }) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/discoverview/${restaurant.id}`);
+  };
+
   const { name, phoneNumber, municipalityName, description, restaurantTags = [], image, id } = restaurant;
-  
 
-  const confirm = () => {
-    onDelete(id);
-  };
-
-  const cancel = () => {
-    console.log("Cancelado");
-  };
-  
   const imageUrl = getImageUrl(image);
 
   return (
-    <div className="boxPicture">
+    <div className="boxPicture" onClick={handleCardClick}>
       <img
         className="image"
         src={imageUrl || "https://via.placeholder.com/410x280"}
@@ -70,10 +66,6 @@ export default function RestaurantCard({ restaurant, onEdit, onDelete }) {
           </div>
         }
       </div>
-      <div className="actions">
-        <FaEdit className="iconEdit" onClick={() => onEdit(id)} />
-        <StatusSwitch restaurantName={name} restaurantId={id} />
-      </div>
     </div>
   );
-}
+};

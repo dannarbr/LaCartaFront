@@ -5,8 +5,8 @@ import { RiRestaurantLine } from "react-icons/ri";
 import { FiUsers } from "react-icons/fi";
 import { HiOutlineQrcode } from "react-icons/hi";
 import { Link,useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import TermsModal from '../components/TermsModal'; 
+import Header from "../layout/Header";
+import TermsModal from '../components/login-auth/TermsModal'; 
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 

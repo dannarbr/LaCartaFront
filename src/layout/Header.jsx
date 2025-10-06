@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { RiRestaurantLine } from "react-icons/ri";
 import { Link,useNavigate,useLocation } from "react-router-dom";
 import "./Header.css";
-import TermsModal from '../components/TermsModal'; 
+import TermsModal from '../components/login-auth/TermsModal'; 
 import { useState } from 'react';
 
 
@@ -125,29 +125,43 @@ LaCarta — Haciendo más sencillo el mundo de las reservas.</h3>
 
   return (
     <div className="header">
-      <Link to="/home" style={{ textDecoration: 'none' }}>
+      <Link to="/home" style={{ textDecoration: "none" }}>
         <div className="logo-container">
           <RiRestaurantLine className="iconRestaurant" />
           <h3 className="labelMenu">LaCarta</h3>
         </div>
       </Link>
-      <div className="nav-desktop"> 
-        <Link to="/discoverview" style={{ textDecoration: 'none' }}>
+      <div className="nav-desktop">
+        <Link to="/discoverview" style={{ textDecoration: "none" }}>
           <h4 className="labelHeader">Descubrir</h4>
         </Link>
       </div>
       <div className="button-group">
-        <Link to="/login" style={{ textDecoration: 'none' }}>
-          <Button type="primary" className="buttonHover" disabled={isDisabledLogin}>Iniciar sesión</Button>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <Button
+            type="primary"
+            className="buttonHover"
+            disabled={isDisabledLogin}
+          >
+            <span className="full-text">Inciar sesión</span>
+            <span className="short-text">Acceder</span>
+          </Button>
         </Link>
-        
-        <Button type="primary" className="button" disabled={isDisabledRegister} onClick={() => setIsTermsModalOpen(true)}>Registrarse</Button>
+
+        <Button
+          type="primary"
+          className="button"
+          disabled={isDisabledRegister}
+          onClick={() => setIsTermsModalOpen(true)}
+        >
+          Registrarse
+        </Button>
         <TermsModal
-                isOpen={isTermsModalOpen}
-                onClose={() => setIsTermsModalOpen(false)}
-                termsContent={termsHTML}
-                onSuccess={handleTermsAccepted}
-              />
+          isOpen={isTermsModalOpen}
+          onClose={() => setIsTermsModalOpen(false)}
+          termsContent={termsHTML}
+          onSuccess={handleTermsAccepted}
+        />
       </div>
     </div>
   );

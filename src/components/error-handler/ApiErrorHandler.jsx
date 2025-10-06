@@ -16,14 +16,12 @@ const ApiErrorHandler = ({ error, onRetry, children }) => {
         navigate("/login", { replace: true });
       }, 1500);
     }else{
-       console.log("🚨 ERROR RECIBIDO EN ApiErrorHandler:", error);
+      console.log("ERROR RECIBIDO:", error);
     console.log("CODE:", error?.code);
     console.log("MESSAGE:", error?.message);
     }
   }, [code, navigate]);
   if (!error) return children;
-  
-  // Si es 401, no renderizamos nada (ya estamos redirigiendo)
   if (code === 401) return null;
 
   // Función para manejar botón de acción
@@ -37,7 +35,6 @@ const ApiErrorHandler = ({ error, onRetry, children }) => {
     }
   };
 
-  // Contenido según el código de error
   const getErrorContent = () => {
     switch (code) {
       case 403:

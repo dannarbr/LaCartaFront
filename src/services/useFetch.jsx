@@ -4,17 +4,17 @@ export function useFetch(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [status, setStatus] = useState(null); // 👈 NUEVO: código HTTP
+  const [status, setStatus] = useState(null);
 
   const fetchData = useCallback(() => {
     const abortController = new AbortController();
     setLoading(true);
     setError(null);
-    setStatus(null); // Limpiar estado anterior
+    setStatus(null);
 
     fetch(url, { signal: abortController.signal })
       .then((response) => {
-        setStatus(response.status); // 👈 Guardar el código HTTP
+        setStatus(response.status);
         if (!response.ok) {
           return response.text().then((text) => {
             let parsed;
@@ -78,8 +78,8 @@ export function useFetch(url) {
   return {
     data,
     loading,
-    error, // Ahora es un objeto: { code, message, details }
-    status, // Código HTTP numérico (200, 404, 500, etc.)
+    error, // objeto
+    status, //codigo numerico
     refetch: fetchData,
   };
 }

@@ -10,6 +10,8 @@ const ButtonPopAsync = ({errors={},onConfirm,confirmText = "Guardar Cambios", ok
 
   const hasErrors = Object.keys(errors).length > 0;
 
+
+
   const showPopconfirm = () => {
      if (hasErrors) {
       const firstError = Object.values(errors)[0];

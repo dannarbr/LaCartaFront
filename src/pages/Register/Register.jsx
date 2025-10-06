@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import React from "react";
-import Header from "../../components/Header";
+import Header from "../../layout/Header";
 import "./Register.css";
 import { Input } from "antd";
 import { AiOutlineUser } from "react-icons/ai";

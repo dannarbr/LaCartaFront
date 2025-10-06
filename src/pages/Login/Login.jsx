@@ -1,6 +1,6 @@
 import { useLocation ,useNavigate} from "react-router-dom";
 import React from "react";
-import Header from "../../components/Header";
+import Header from "../../layout/Header";
 import "./Login.css";
 import { Input } from "antd";
 import { AiOutlineUser } from "react-icons/ai";
@@ -12,7 +12,7 @@ import { Button } from "antd/es/radio";
 import { FaArrowRight } from "react-icons/fa";
 import { RiRestaurantLine } from "react-icons/ri";
 import { useState } from "react";
-import TermsModal from "../../components/TermsModal";
+import TermsModal from "../../components/login-auth/TermsModal";
 
 const Login=()=>{
     

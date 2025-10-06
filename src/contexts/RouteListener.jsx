@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useLoading } from "../hooks/LoadingContext";
+import { useLoading } from "./LoadingContext";
 
 const RouteListener = () => {
   const location = useLocation();
@@ -9,13 +9,12 @@ const RouteListener = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    // Desactivar después de X milisegundos (simulando carga)
-    // O bien, podrías esperar a que se carguen datos reales (ver paso 6)
+    // Desactivar después de tantos milisegundos 
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500); // Ajusta este tiempo según necesites
+    }, 2500); // tiempo de carga
 
-    // Cleanup
+    // limpia el timer
     return () => clearTimeout(timer);
   }, [location, setIsLoading]);
 

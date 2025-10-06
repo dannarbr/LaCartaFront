@@ -1,7 +1,7 @@
 import "./ClientRestaurantView.css";
 import { useParams } from "react-router-dom";
-import Header from "../../../components/Header";
-import ApiErrorHandler from "../../../components/ApiErrorHandler";
+import Header from "../../../layout/Header";
+import ApiErrorHandler from "../../../components/error-handler/ApiErrorHandler";
 import { useFetch } from "../../../services/useFetch";
 import { Result } from "antd";
 import { IoCallOutline } from "react-icons/io5";

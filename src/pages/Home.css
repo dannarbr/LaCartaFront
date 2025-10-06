@@ -193,18 +193,19 @@
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 30px 12px 20px;
-  }
 
   .labelCenter {
+    margin-top: -10% !important;
     font-size: clamp(1.6rem, 7vw, 2.5rem);
+    
   }
 
   .buttonGroup {
     flex-direction: column;
     gap: 12px;
+    margin-left: 18%;
   }
+
 
   .buttonRestaurant,
   .buttonToRestaurant {
@@ -214,7 +215,10 @@
     padding: 14px 20px;
   }
 
-  .sectionTitle,
+  .sectionTitle{
+    margin-top: -50%;
+    font-size: clamp(1.6rem, 6vw, 2rem);
+  }
   .sectionSubtitle {
     font-size: clamp(1.6rem, 6vw, 2rem);
   }

@@ -36,7 +36,6 @@ const TermsModal = ({ isOpen, onClose, termsContent, onSuccess }) => {
     }
   };
 
-  // Redirigir a otra página
   const redirectToNextPage = () => {
     navigate('/register');
   };

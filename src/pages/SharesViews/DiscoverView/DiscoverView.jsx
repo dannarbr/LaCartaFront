@@ -1,8 +1,8 @@
 import React from "react";
 import "./DiscoverView.css";
-import Header from "../../../components/Header";
+import Header from "../../../layout/Header";
 import { Button ,Modal} from "antd";
-import Icon from "../../../components/Icon";
+import Icon from "../../../components/others/Icon.jsx";
 import EspaghettiIcon from "../../../assets/icons/icon-espaghetti.png.png";
 import Tacos from "../../../assets/icons/icon-tacos.png";
 import Sushi from "../../../assets/icons/icon-sushi.png";
@@ -10,11 +10,11 @@ import RiceIcon from "../../../assets/icons/icon-arroz.png";
 import AmericanIcon from "../../../assets/icons/icon-hamburguesa.png"; 
 import ChineseIcon from "../../../assets/icons/icon-dumpling.png";
 import MeatIcon from "../../../assets/icons/icon-carne.png";
-import RestaurantCardDiscover from "../../../components/RestaurantCardDiscover";
+import RestaurantCardDiscover from "../../../components/discover-view/RestaurantCardDiscover.jsx";
 import { useFetch } from "../../../services/useFetch";
 import { useState ,useEffect} from "react";
 import NoRestaurantIcon from "../../../assets/icons/icon-no-comida.png";
-import ApiErrorHandler from "../../../components/ApiErrorHandler";
+import ApiErrorHandler from "../../../components/error-handler/ApiErrorHandler.jsx";
 
 
 const DiscoverView = () => {

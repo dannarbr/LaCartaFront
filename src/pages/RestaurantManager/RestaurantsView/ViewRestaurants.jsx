@@ -1,11 +1,11 @@
 import React from 'react';
 import './ViewRestaurants.css';
-import Header from "../../../components/Header";
+import Header from "../../../layout/Header";
 import { Button } from "antd";
 import { RiRestaurantLine } from "react-icons/ri";
 import { message, Popconfirm } from 'antd';
 import { useFetch } from '../../../services/useFetch';
-import RestaurantCard from '../../../components/RestaurantCard';
+import RestaurantCard from '../../../components/restaurant-view-manager/RestaurantCard.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const confirm = e => {

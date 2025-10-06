@@ -1,40 +1,40 @@
 import React from "react";
-import "./RestaurantCardDiscover.css";
+import "./RestaurantCard.css";
 import { IoCallOutline } from "react-icons/io5";
 import { MdOutlinePlace } from "react-icons/md";
-import TagList from "./TagList";
+import { FaEdit } from "react-icons/fa";
+import StatusSwitch from "../restaurant-edit/StatusSwitch.jsx";
+import TagList from "../others/TagList.jsx";
 import { useNavigate } from "react-router-dom";
-
 
 const getImageUrl = (imagePath) => {
   if (!imagePath) return "https://via.placeholder.com/410x280";
 
-  // Normaliza por si vienen backslashes desde Windows
   const path = String(imagePath).replace(/\\/g, "/");
 
-  // Si ya es absoluta, úsala tal cual
   if (/^https?:\/\//i.test(path)) return path;
 
-  // Toma la base del backend de env (Vite o CRA)
   const base ="http://localhost:8080";
-
-  // Une base + path relativa del backend
+  
   return `${base}${path.startsWith("/") ? "" : "/"}${path}`;
 };
 
-export default function RestaurantCardDiscover({ restaurant }) {
-  const navigate = useNavigate();
+export default function RestaurantCard({ restaurant, onEdit, onDelete }) {
+  const { name, phoneNumber, municipalityName, description, restaurantTags = [], image, id } = restaurant;
+  
 
-  const handleCardClick = () => {
-    navigate(`/discoverview/${restaurant.id}`);
+  const confirm = () => {
+    onDelete(id);
   };
 
-  const { name, phoneNumber, municipalityName, description, restaurantTags = [], image, id } = restaurant;
-
+  const cancel = () => {
+    console.log("Cancelado");
+  };
+  
   const imageUrl = getImageUrl(image);
 
   return (
-    <div className="boxPicture" onClick={handleCardClick}>
+    <div className="boxPicture">
       <img
         className="image"
         src={imageUrl || "https://via.placeholder.com/410x280"}
@@ -70,6 +70,10 @@ export default function RestaurantCardDiscover({ restaurant }) {
           </div>
         }
       </div>
+      <div className="actions">
+        <FaEdit className="iconEdit" onClick={() => onEdit(id)} />
+        <StatusSwitch restaurantName={name} restaurantId={id} />
+      </div>
     </div>
   );
-};
+}
